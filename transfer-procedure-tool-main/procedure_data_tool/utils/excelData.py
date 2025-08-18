@@ -68,6 +68,8 @@ def importComponents(filepath='//hanford/data/sitedata/WasteTransferEng/Waste Tr
         component_name = row[0]
         component_type = row[1]
         components[component_name] = types[component_type](component_name, pit = row[2], jumper = row[3], dvi = row[4], field_label = row[12])
+        if (component_type == "3-Way-Valve"):
+            components[component_name].addConnectionLabels(row[8],row[9],row[10])
 
     #For all component object in "components". Call their .conect() method to its neighbors
     for component, neighbors in zip(components.values(), conections_matrix):

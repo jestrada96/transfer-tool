@@ -140,7 +140,7 @@ def choose_save_location(*args):
 
 ### Loads the UI (appearance),also contains the default source data excel file.
 def main():
-    defult_excel_file_path = '//hanford/data/sitedata/WasteTransferEng/Waste Transfer Engineering/2 Team Members/Sarah Hunter/DONT USE MasterProcedureData 2025-03-19.xlsx'
+    defult_excel_file_path = '//hanford/data/sitedata/WasteTransferEng/Waste Transfer Engineering/2 Team Members/Sarah Hunter/transfer-pro - related files/DONT USE MasterProcedureData 2025-03-19.xlsx'
     
     current_dir = os.path.dirname(__file__)
     global excel_file_path

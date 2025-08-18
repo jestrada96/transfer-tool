@@ -11,11 +11,17 @@ class Valve3(Valve):
         self.directions = 3
         self.ein = ein
         self.connections = []
+        self.connection_labels = []
         self.show = True
         self.in_tank = False
         self.position
         self.dvi_credited = dvi
         self.blocked_element
+
+    def addConnectionLabels(self, *labels):
+        for label in labels:
+            if label is not None:
+                self.connection_labels.append(label)
 
     def setBlockedElement(self, route):
         for connection in self.connections:
@@ -26,8 +32,9 @@ class Valve3(Valve):
 
     def markPosition(self):
         if self.blocked_element:
+            index = self.connections.index(self.blocked_element)
             if self.blocked_element.EIN():
-                self.position = "BLOCK " +  self.blocked_element.EIN()
+                self.position = "BLOCK " +  self.connection_labels[index]
             else:
                 for next_connection in self.blocked_element.connections:
                     if next_connection == self or next_connection in self.connections:
